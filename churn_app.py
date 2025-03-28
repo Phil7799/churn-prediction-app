@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import joblib
 from datetime import datetime
-import streamlit.components.v1 as components
+
 
 # Set page configuration to wide
 st.set_page_config(page_title="Little Rider Churn Prediction App", page_icon="🚕", layout="wide")
@@ -203,38 +203,5 @@ with tab2:
         except Exception as e:
             st.error(f"An error occurred: {str(e)}")
             st.write("Please ensure all inputs are valid and the model files are available.")
-        
-            # After calculating churn_probability
-            st.write("### Churn Probability Visualization")
-            gauge_html = f"""
-            <script src="https://cdn.jsdelivr.net/npm/gaugeJS@1.3.7/dist/gauge.min.js"></script>
-            <canvas id='gauge'></canvas>
-            <script>
-               var opts = {{
-               angle: 0.15,
-               lineWidth: 0.44,
-               radiusScale: 1,
-               pointer: {{ length: 0.6, strokeWidth: 0.035, color: '#000000' }},
-               limitMax: false,
-               limitMin: false,
-               colorStart: '#6FADCF',
-               colorStop: '#8FC0DA',
-               strokeColor: '#E0E0E0',
-               generateGradient: true,
-               highDpiSupport: true,
-               staticZones: [
-                    {{strokeStyle: "#FF0000", min: 0, max: 0.5}},
-                    {{strokeStyle: "#FFFF00", min: 0.5, max: 0.8}},
-                    {{strokeStyle: "#00FF00", min: 0.8, max: 1}}
-               ],
-           }};
-           var target = document.getElementById('gauge');
-           var gauge = new Gauge(target).setOptions(opts);
-           gauge.maxValue = 1;
-           gauge.setMinValue(0);
-           gauge.animationSpeed = 32;
-           gauge.set({churn_probability});
-      </script>
-      """
-components.html(gauge_html, height=300)
+            
             
