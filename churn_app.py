@@ -27,18 +27,18 @@ with tab1:
             st.dataframe(data.head())
 
             # Load the saved preprocessing objects
-            to_drop = joblib.load('C:/Users/philip.otieno/Desktop/ML - AI - Projects/dropped_columns.pkl')
-            poly = joblib.load('C:/Users/philip.otieno/Desktop/ML - AI - Projects/poly_features.pkl')
-            selector = joblib.load('C:/Users/philip.otieno/Desktop/ML - AI - Projects/selector.pkl')
-            imputer = joblib.load('C:/Users/philip.otieno/Desktop/ML - AI - Projects/imputer.pkl')
-            scaler = joblib.load('C:/Users/philip.otieno/Desktop/ML - AI - Projects/scaler.pkl')
+            to_drop = joblib.load('dropped_columns.pkl')
+            poly = joblib.load('poly_features.pkl')
+            selector = joblib.load('selector.pkl')
+            imputer = joblib.load('imputer.pkl')
+            scaler = joblib.load('scaler.pkl')
 
             # Determine which model to load (prefer LightGBM if available)
             try:
-                model = joblib.load('C:/Users/philip.otieno/Desktop/ML - AI - Projects/churn_model_lgbm.pkl')
+                model = joblib.load('churn_model_lgbm.pkl')
                 st.write("Using LightGBM model for predictions.")
             except FileNotFoundError:
-                model = joblib.load('C:/Users/philip.otieno/Desktop/ML - AI - Projects/churn_model_rf.pkl')
+                model = joblib.load('churn_model_rf.pkl')
                 st.write("Using Random Forest model for predictions.")
 
             # Apply the same feature engineering as during training
@@ -129,18 +129,18 @@ with tab2:
     if submit_button:
         try:
             # Load the saved preprocessing objects
-            to_drop = joblib.load('C:/Users/philip.otieno/Desktop/ML - AI - Projects/dropped_columns.pkl')
-            poly = joblib.load('C:/Users/philip.otieno/Desktop/ML - AI - Projects/poly_features.pkl')
-            selector = joblib.load('C:/Users/philip.otieno/Desktop/ML - AI - Projects/selector.pkl')
-            imputer = joblib.load('C:/Users/philip.otieno/Desktop/ML - AI - Projects/imputer.pkl')
-            scaler = joblib.load('C:/Users/philip.otieno/Desktop/ML - AI - Projects/scaler.pkl')
+            to_drop = joblib.load('dropped_columns.pkl')
+            poly = joblib.load('poly_features.pkl')
+            selector = joblib.load('selector.pkl')
+            imputer = joblib.load('imputer.pkl')
+            scaler = joblib.load('scaler.pkl')
 
             # Determine which model to load (prefer LightGBM if available)
             try:
-                model = joblib.load('C:/Users/philip.otieno/Desktop/ML - AI - Projects/churn_model_lgbm.pkl')
+                model = joblib.load('churn_model_lgbm.pkl')
                 st.write("Using LightGBM model for predictions.")
             except FileNotFoundError:
-                model = joblib.load('C:/Users/philip.otieno/Desktop/ML - AI - Projects/churn_model_rf.pkl')
+                model = joblib.load('churn_model_rf.pkl')
                 st.write("Using Random Forest model for predictions.")
 
             # Create a DataFrame with the manual input
